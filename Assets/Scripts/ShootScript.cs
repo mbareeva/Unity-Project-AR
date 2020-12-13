@@ -17,7 +17,7 @@ public class ShootScript : MonoBehaviour
 
             //if it hits bee1, then destroy bee1 and so on..
             //(hit.transform.name == "Bee(Clone)" || hit.transform.name == "Bee(Clone)" || hit.transform.name == "Bee(Clone)")
-            if (hit.transform.name == "Bee(Clone)" || hit.transform.name == "bee1(Clone)" || hit.transform.name == "bee3(Clone)")
+            if (hit.transform.name == "bee(Clone)" || hit.transform.name == "bee1(Clone)" || hit.transform.name == "bee3(Clone)")
             {
 
                 Destroy(hit.transform.gameObject);
