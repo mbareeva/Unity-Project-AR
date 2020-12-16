@@ -8,7 +8,7 @@ public class ShootScript : MonoBehaviour
     public GameObject splashes;
 
     //when the user clicks Shoot button, this function is called
-    public void Shoot() {
+    public void Shoot() { 
 
         RaycastHit hit;
 
