@@ -677,8 +677,8 @@ MonoBehaviour:
   - {fileID: 556163624}
   bees:
   - {fileID: 7886282544132758240, guid: e6b802d5f8b1a284b856cffb909bcc94, type: 3}
-  - {fileID: 7848843361691722939, guid: 9a294644b277347a081ed92a8408399e, type: 3}
-  - {fileID: 2920663213267605672, guid: bdf6eeb1b216c410c8f80921076cfe27, type: 3}
+  - {fileID: 7886282544132758240, guid: e6b802d5f8b1a284b856cffb909bcc94, type: 3}
+  - {fileID: 7886282544132758240, guid: e6b802d5f8b1a284b856cffb909bcc94, type: 3}
 --- !u!4 &1162918114
 Transform:
   m_ObjectHideFlags: 0

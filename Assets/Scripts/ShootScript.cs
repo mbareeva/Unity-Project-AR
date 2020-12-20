@@ -16,7 +16,7 @@ public class ShootScript : MonoBehaviour
         if (Physics.Raycast(arCamera.transform.position, arCamera.transform.forward, out hit)) {
 
             //if it hits bee1, then destroy bee1 and so on..
-            if (hit.transform.name == "Bee(Clone)" || hit.transform.name == "bee1(Clone)" || hit.transform.name == "bee3(Clone)")
+            if (hit.transform.name == "Bee(Clone)")
             {
 
                 Destroy(hit.transform.gameObject);

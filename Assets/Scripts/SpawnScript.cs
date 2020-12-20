@@ -19,9 +19,9 @@ public class SpawnScript : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-
+            Vector3 pos = new Vector3(Random.Range(-2.0f, 2.0f), 0, Random.Range(-2.0f, 2.0f));
             //3 args - 1) bees - what to instantiate; 2)the position, 3)default rotation
-            Instantiate(bees[i], spawnPoints[i].position, Quaternion.identity);
+            Instantiate(bees[i], pos, Quaternion.identity);
         }
 
         //waits for 4 seconds and spawns 3 bees more, and so on..
