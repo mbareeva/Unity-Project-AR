@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI; 
 public class fighterController : MonoBehaviour {
     // Start is called before the first frame update
     public Transform enemyTarget;
     static Animator anim;
+    public Slider playerHB;
     //buttons on the display.
     public static bool mvBack = false;
     public static bool mvFwd = false;
@@ -75,6 +76,7 @@ public class fighterController : MonoBehaviour {
         anim.ResetTrigger ("idle");
         anim.SetTrigger ("react");
         health = health - 10;
+        playerHB.value = health;
     }
 
 }

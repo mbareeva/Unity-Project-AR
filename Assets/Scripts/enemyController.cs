@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class enemyController : MonoBehaviour {
     public Transform playerTransform;
@@ -8,6 +9,7 @@ public class enemyController : MonoBehaviour {
     static Animator anim2;
    public int enemyHealth = 100;
    public static enemyController instance;
+   public Slider enemyHB;
    void Awake() {
        if(instance == null) {
            instance = this;
@@ -29,6 +31,7 @@ public class enemyController : MonoBehaviour {
 
     public void enemyReact() {
         enemyHealth = enemyHealth - 10;
+        enemyHB.value = enemyHealth;
         if(enemyHealth < 10){
             enemyKnockout();
         } else {
