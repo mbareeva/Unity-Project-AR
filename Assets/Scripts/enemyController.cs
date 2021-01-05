@@ -22,11 +22,25 @@ public class enemyController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-       // if (anim2.GetCurrentAnimatorStateInfo (0).IsName ("fight_idle")) {
+        if (anim2.GetCurrentAnimatorStateInfo (0).IsName ("fight_idleCopy")) {
             direction = playerTransform.position - this.transform.position;
             direction.y = 0;
             this.transform.rotation = Quaternion.Slerp (this.transform.rotation, Quaternion.LookRotation (direction), 1f);
-       // }
+        }
+//Ai for attacks of bear.
+        Debug.Log(direction.magnitude);
+        //if away from kicking distance, then move forward.
+        if (direction.magnitude > 1.2f && GameController.allowMovement == true) {
+            anim2.SetTrigger("walkFwd");
+        } else {
+            anim2.ResetTrigger("walkFwd");
+        }
+//kicking started
+        if (direction.magnitude < 1.2f && GameController.allowMovement == true) {
+            anim2.SetTrigger("kick");
+        } else {
+            anim2.ResetTrigger("kick");
+        }
     }
 
     public void enemyReact() {

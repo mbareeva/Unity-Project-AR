@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 public class fighterController : MonoBehaviour {
     // Start is called before the first frame update
     public Transform enemyTarget;
@@ -14,7 +14,7 @@ public class fighterController : MonoBehaviour {
     public static fighterController instance;
     public static bool isAttacking = false;
 
-    public int health  = 100;
+    public int health = 100;
     private Vector3 direction; //between the main player and enemy.
     void Awake () {
         if (instance == null) {
@@ -73,10 +73,19 @@ public class fighterController : MonoBehaviour {
     }
     public void react () {
         isAttacking = true;
-        anim.ResetTrigger ("idle");
-        anim.SetTrigger ("react");
         health = health - 10;
+        if (health < 10) {
+            knockout ();
+        } else {
+            anim.ResetTrigger ("idle");
+            anim.SetTrigger ("react");
+        }
         playerHB.value = health;
+    }
+
+    public void knockout () {
+        anim.SetTrigger ("knockout");
+
     }
 
 }
