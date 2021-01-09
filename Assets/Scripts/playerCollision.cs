@@ -7,7 +7,7 @@ public class playerCollision : MonoBehaviour
         void OnTriggerEnter (Collider other) {
         if (other.tag == "Enemy") {
             //if get hit, reduce the health.
-            enemyController.instance.enemyReact();
+            fighterController.instance.react();
             Debug.Log ("HIT HIT");
         }
     }

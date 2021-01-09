@@ -13,6 +13,10 @@ public class fighterController : MonoBehaviour {
     //make the script available for other sections/scripts.
     public static fighterController instance;
     public static bool isAttacking = false;
+    public BoxCollider[] c;
+
+    public AudioClip[] audioClip;
+    AudioSource audioc;
 
     public int health = 100;
     private Vector3 direction; //between the main player and enemy.
@@ -23,8 +27,19 @@ public class fighterController : MonoBehaviour {
     }
     void Start () {
         anim = GetComponent<Animator> ();
+        SetAllBoxColliders (false);
+        audioc = GetComponent<AudioSource> ();
     }
 
+    public void playAudio(int clip) {
+        audioc.clip = audioClip [clip];
+        audioc.Play();
+    }
+
+    private void SetAllBoxColliders (bool state) {
+        c[0].enabled = state;
+        c[1].enabled = state;
+    }
     // Update is called once per frame
     void Update () {
         //define the vector between the player and enemy that is always updated for implementation of keeping the eye contact
@@ -39,12 +54,15 @@ public class fighterController : MonoBehaviour {
         //make the moving back & fwd functional after kick or punch.
         if (anim.GetCurrentAnimatorStateInfo (0).IsName ("fight_idle")) {
             isAttacking = false;
+            SetAllBoxColliders (false);
         }
 
         if (isAttacking == false) {
             if (mvBack == true) {
                 anim.SetTrigger ("wkBack");
                 anim.ResetTrigger ("idle");
+                SetAllBoxColliders (false);
+
             } else {
                 anim.SetTrigger ("idle");
                 anim.ResetTrigger ("wkBack");
@@ -53,10 +71,14 @@ public class fighterController : MonoBehaviour {
             if (mvFwd == true) {
                 anim.SetTrigger ("wkFwd");
                 anim.ResetTrigger ("idle");
+                SetAllBoxColliders (false);
+
             } else if (mvBack == false) {
                 anim.SetTrigger ("idle");
                 anim.ResetTrigger ("wkFwd");
             }
+        } else if (isAttacking == true) {
+            SetAllBoxColliders(true);
         }
 
     }
@@ -65,20 +87,24 @@ public class fighterController : MonoBehaviour {
         isAttacking = true;
         anim.ResetTrigger ("idle");
         anim.SetTrigger ("punch");
+        playAudio(1);
     }
     public void kick () {
         isAttacking = true;
         anim.ResetTrigger ("idle");
         anim.SetTrigger ("kick");
+        playAudio(3);
     }
     public void react () {
-        isAttacking = true;
+        isAttacking = true; //anschauen wo ich das auf false setze.
         health = health - 10;
         if (health < 10) {
             knockout ();
+            playAudio(2);
         } else {
             anim.ResetTrigger ("idle");
             anim.SetTrigger ("react");
+            playAudio(0);
         }
         playerHB.value = health;
     }
