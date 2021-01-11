@@ -45,7 +45,7 @@ public class enemyController : MonoBehaviour {
         //Ai for attacks of bear.
         Debug.Log (direction.magnitude);
         //if away from kicking distance, then move forward.
-        if (direction.magnitude > 0.45f && GameController.allowMovement == true) {
+        if (direction.magnitude > 0.25f && GameController.allowMovement == true) {
             anim2.SetTrigger ("walkFwd");
             //when walking, no sound playing.
             audioc.Stop();
@@ -55,30 +55,32 @@ public class enemyController : MonoBehaviour {
             anim2.ResetTrigger ("walkFwd");
         }
         //kicking started
-        //GameController.allowMovement == true
-        if (direction.magnitude < 0.45f && direction.magnitude > 0.2f && GameController.allowMovement == true) {
+        if (direction.magnitude > 0.1f && direction.magnitude < 0.2f && GameController.allowMovement == true) {
             SetAllBoxColliders (true);
             if (!audioc.isPlaying && !anim2.GetCurrentAnimatorStateInfo (0).IsName ("roundhouse_kick 2")) {
                 playAudio (0);
                 anim2.SetTrigger ("kick");
+                SetAllBoxColliders (true);
             }
         } else {
             anim2.ResetTrigger ("kick");
         }
 
-        if (direction.magnitude < 0.2f) {
+        if (direction.magnitude < 0.15f) {
             SetAllBoxColliders (true);
             if (!audioc.isPlaying && !anim2.GetCurrentAnimatorStateInfo (0).IsName ("cross_punch")) {
                 playAudio (1);
                 anim2.SetTrigger ("punch");
+                //if he is punching, enable hos colliders
+                SetAllBoxColliders (true);
             }
         } else {
             anim2.ResetTrigger ("punch");
         }
 
-        if (direction.magnitude < 0.15f && direction.magnitude > 0f && GameController.allowMovement == true) {
+        if (direction.magnitude < 0.13f && direction.magnitude > 0f && GameController.allowMovement == true) {
             anim2.SetTrigger ("walkBack");
-             audioc.Stop();
+            audioc.Stop();
             SetAllBoxColliders (false);
         } else {
             anim2.ResetTrigger ("walkBack");
@@ -90,9 +92,11 @@ public class enemyController : MonoBehaviour {
         //enemyHB.value = enemyHealth;
         if (enemyHealth < 10) {
             enemyKnockout ();
+            playAudio (2);
         } else {
             anim2.ResetTrigger ("idle");
             anim2.SetTrigger ("react");
+            playAudio (3);
         }
         enemyHB.value = enemyHealth;
     }

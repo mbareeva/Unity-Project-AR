@@ -54,14 +54,14 @@ public class fighterController : MonoBehaviour {
         //make the moving back & fwd functional after kick or punch.
         if (anim.GetCurrentAnimatorStateInfo (0).IsName ("fight_idle")) {
             isAttacking = false;
-            SetAllBoxColliders (false);
+            SetAllBoxColliders (true);
         }
 
         if (isAttacking == false) {
             if (mvBack == true) {
                 anim.SetTrigger ("wkBack");
                 anim.ResetTrigger ("idle");
-                SetAllBoxColliders (false);
+                //SetAllBoxColliders (false);
 
             } else {
                 anim.SetTrigger ("idle");
@@ -71,13 +71,16 @@ public class fighterController : MonoBehaviour {
             if (mvFwd == true) {
                 anim.SetTrigger ("wkFwd");
                 anim.ResetTrigger ("idle");
-                SetAllBoxColliders (false);
+               // SetAllBoxColliders (false);
 
             } else if (mvBack == false) {
                 anim.SetTrigger ("idle");
                 anim.ResetTrigger ("wkFwd");
             }
         } else if (isAttacking == true) {
+
+        Debug.Log("IS attacking" + isAttacking);
+            //if attacking, the colliders will be reenabled for her.
             SetAllBoxColliders(true);
         }
 
@@ -111,7 +114,6 @@ public class fighterController : MonoBehaviour {
 
     public void knockout () {
         anim.SetTrigger ("knockout");
-
     }
 
 }

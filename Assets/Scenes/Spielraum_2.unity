@@ -466,19 +466,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d0c01bd21ad742eebadb7ead404dfdf, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.078
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d0c01bd21ad742eebadb7ead404dfdf, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.10275
+      value: 0.078
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d0c01bd21ad742eebadb7ead404dfdf, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 0.078
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d0c01bd21ad742eebadb7ead404dfdf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.289
+      value: -0.1201
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d0c01bd21ad742eebadb7ead404dfdf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2559,8 +2559,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2, z: 0.35}
-  m_Center: {x: 0, y: 0, z: 0.09}
+  m_Size: {x: 0.68, y: 0.89, z: 0.5}
+  m_Center: {x: 0, y: 0.27, z: 0.06}
 --- !u!54 &1547256430
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3403,8 +3403,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.12, z: 0.13}
-  m_Center: {x: 0.04, y: -0.03, z: -0.03}
+  m_Size: {x: 0.44, y: 0.4, z: 0.34}
+  m_Center: {x: 0.04, y: 0.09, z: -0.03}
 --- !u!1 &1871812966
 GameObject:
   m_ObjectHideFlags: 0
@@ -3820,7 +3820,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.33, z: 0.38}
+  m_Size: {x: 0.4, y: 0.66, z: 0.62}
   m_Center: {x: 0, y: 0.06, z: 0}
 --- !u!114 &2050942756
 MonoBehaviour:
@@ -3996,8 +3996,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.78, y: 1.01, z: 0.56}
-  m_Center: {x: 0.07, y: 0.05, z: 0.03}
+  m_Size: {x: 2.13, y: 1.31, z: 1.7}
+  m_Center: {x: 0.25, y: 0.21, z: 0.33}
 --- !u!54 &3431566466432409667
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4010,7 +4010,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -4043,8 +4043,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.79, y: 0.7, z: 0.78}
-  m_Center: {x: -0.15, y: 0.27, z: 0.16}
+  m_Size: {x: 1.02, y: 1.71, z: 1.85}
+  m_Center: {x: 0, y: 0.27, z: 0.16}
 --- !u!54 &4416410843647830969
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4217,17 +4217,17 @@ PrefabInstance:
     - target: {fileID: 2649053110629411549, guid: d0e262d38dc76f941ad031e69a60e7cf,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2649053110629411549, guid: d0e262d38dc76f941ad031e69a60e7cf,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2649053110629411549, guid: d0e262d38dc76f941ad031e69a60e7cf,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2649053110629411549, guid: d0e262d38dc76f941ad031e69a60e7cf,
         type: 3}
@@ -4237,12 +4237,12 @@ PrefabInstance:
     - target: {fileID: 2649053110629411549, guid: d0e262d38dc76f941ad031e69a60e7cf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.078
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2649053110629411549, guid: d0e262d38dc76f941ad031e69a60e7cf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.026
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2649053110629411549, guid: d0e262d38dc76f941ad031e69a60e7cf,
         type: 3}
@@ -4313,8 +4313,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.62, y: 0.47, z: 0.51}
-  m_Center: {x: 0.23, y: 0.01, z: 0.1}
+  m_Size: {x: 1.11, y: 0.96, z: 0.51}
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!54 &9197131774037493205
 Rigidbody:
   m_ObjectHideFlags: 0
