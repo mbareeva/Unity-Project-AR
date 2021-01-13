@@ -133,7 +133,10 @@ public class GameController : MonoBehaviour {
             points[3].SetActive (true);
         }
     }
-
+/*
+* Plays the audio for particular round.
+* For round == 1 play the audio "round 2".
+*/
     public void rounds () {
         round = playerScore + enemyScore;
         if (round == 1) {
