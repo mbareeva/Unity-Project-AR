@@ -119,16 +119,15 @@ public class fighterController : MonoBehaviour {
         GameController.allowMovement = false;
         //reset health as well in the beginning of each round.
         health = 100;
-        
         anim.SetTrigger ("knockout");
         //if knocked out, add the score to the bear.
         GameController.instance.scoreEnemy ();
         GameController.instance.onScreenPoints ();
         GameController.instance.rounds ();
-        if (GameController.playerScore == 2) {
+        if (GameController.enemyScore == 2) {
             GameController.instance.doReset ();
             StartCoroutine (resetCharacters ());
-        } else {
+        } else { 
             StartCoroutine (resetCharacters ());
         }
     }

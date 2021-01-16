@@ -108,14 +108,14 @@ public class enemyController : MonoBehaviour {
 */
     public void enemyKnockout () {
         GameController.allowMovement = false;
+        //reset for the next round the health
         enemyHealth = 100;
-        
         anim2.SetTrigger ("knockout");
         //if bear is knocked out, score to the player.
         GameController.instance.scorePlayer();
         GameController.instance.onScreenPoints();
         GameController.instance.rounds();
-
+        //if the end of 2nd round & she has won
         if(GameController.playerScore == 2) {
             //resetting on screen scoring points.
             GameController.instance.doReset();
@@ -132,7 +132,7 @@ public class enemyController : MonoBehaviour {
         anim2.SetTrigger("idle");
         anim2.ResetTrigger("knockout");
         t.position = enemyPosition;
-        t.position = new Vector3(0.4f, 0, t.position.z);
+        t.position = new Vector3(0.4f, 0.1f, t.position.z);
         GameController.allowMovement = true;
     }
 }
