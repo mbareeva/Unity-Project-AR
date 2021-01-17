@@ -13,6 +13,7 @@ public class enemyController : MonoBehaviour {
     public BoxCollider[] c;
     public AudioClip[] audioClip;
     AudioSource audioc;
+    private Vector3 enemyPosition;
     void Awake () {
         if (instance == null) {
             instance = this;
@@ -23,6 +24,7 @@ public class enemyController : MonoBehaviour {
         anim2 = GetComponent<Animator> ();
         SetAllBoxColliders (false);
         audioc = GetComponent<AudioSource> ();
+        enemyPosition = transform.position;
     }
 
     public void playAudio (int clip) {
@@ -43,7 +45,7 @@ public class enemyController : MonoBehaviour {
             SetAllBoxColliders (false);
         }
         //Ai for attacks of bear.
-        Debug.Log (direction.magnitude);
+        //Debug.Log (direction.magnitude);
         //if away from kicking distance, then move forward.
         if (direction.magnitude > 0.25f && GameController.allowMovement == true) {
             anim2.SetTrigger ("walkFwd");
@@ -100,8 +102,37 @@ public class enemyController : MonoBehaviour {
         }
         enemyHB.value = enemyHealth;
     }
-
+/*
+* Player knocks the enemy out. When enemy is knockedout, the palyer
+* stops moving. The round is reset to the next. The health of both players is reset to 100.
+*/
     public void enemyKnockout () {
+        GameController.allowMovement = false;
+        //reset for the next round the health
+        enemyHealth = 100;
         anim2.SetTrigger ("knockout");
+        //if bear is knocked out, score to the player.
+        GameController.instance.scorePlayer();
+        GameController.instance.onScreenPoints();
+        GameController.instance.rounds();
+        //if the end of 2nd round & she has won
+        if(GameController.playerScore == 2) {
+            //resetting on screen scoring points.
+            GameController.instance.doReset();
+        } else {
+            StartCoroutine(resetCharacters());
+        }
+    }
+
+    IEnumerator resetCharacters() {
+        yield return new WaitForSeconds(5);
+        enemyHB.value = 100;
+        //reset position
+        Transform t = this.GetComponent<Transform> ();
+        anim2.SetTrigger("idle");
+        anim2.ResetTrigger("knockout");
+        t.position = enemyPosition;
+        t.position = new Vector3(0.4f, 0.1f, t.position.z);
+        GameController.allowMovement = true;
     }
 }

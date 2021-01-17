@@ -7,7 +7,6 @@ public class enemyCollision : MonoBehaviour {
         if (other.tag == "Player") {
             //if get hit, reduce the health.
             enemyController.instance.enemyReact();
-            Debug.Log ("HIT");
         }
     }
 }

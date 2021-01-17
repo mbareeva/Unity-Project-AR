@@ -20,6 +20,7 @@ public class fighterController : MonoBehaviour {
 
     public int health = 100;
     private Vector3 direction; //between the main player and enemy.
+    private Vector3 playerPosition;
     void Awake () {
         if (instance == null) {
             instance = this;
@@ -29,11 +30,12 @@ public class fighterController : MonoBehaviour {
         anim = GetComponent<Animator> ();
         SetAllBoxColliders (false);
         audioc = GetComponent<AudioSource> ();
+        playerPosition = transform.position;
     }
 
-    public void playAudio(int clip) {
-        audioc.clip = audioClip [clip];
-        audioc.Play();
+    public void playAudio (int clip) {
+        audioc.clip = audioClip[clip];
+        audioc.Play ();
     }
 
     private void SetAllBoxColliders (bool state) {
@@ -56,32 +58,33 @@ public class fighterController : MonoBehaviour {
             isAttacking = false;
             SetAllBoxColliders (true);
         }
+        if (GameController.allowMovement == true) {
+            if (isAttacking == false) {
+                if (mvBack == true) {
+                    anim.SetTrigger ("wkBack");
+                    anim.ResetTrigger ("idle");
+                    //SetAllBoxColliders (false);
 
-        if (isAttacking == false) {
-            if (mvBack == true) {
-                anim.SetTrigger ("wkBack");
-                anim.ResetTrigger ("idle");
-                //SetAllBoxColliders (false);
+                } else {
+                    anim.SetTrigger ("idle");
+                    anim.ResetTrigger ("wkBack");
+                }
 
-            } else {
-                anim.SetTrigger ("idle");
-                anim.ResetTrigger ("wkBack");
+                if (mvFwd == true) {
+                    anim.SetTrigger ("wkFwd");
+                    anim.ResetTrigger ("idle");
+                    // SetAllBoxColliders (false);
+
+                } else if (mvBack == false) {
+                    anim.SetTrigger ("idle");
+                    anim.ResetTrigger ("wkFwd");
+                }
+            } else if (isAttacking == true) {
+
+               // Debug.Log ("IS attacking" + isAttacking);
+                //if attacking, the colliders will be reenabled for her.
+                SetAllBoxColliders (true);
             }
-
-            if (mvFwd == true) {
-                anim.SetTrigger ("wkFwd");
-                anim.ResetTrigger ("idle");
-               // SetAllBoxColliders (false);
-
-            } else if (mvBack == false) {
-                anim.SetTrigger ("idle");
-                anim.ResetTrigger ("wkFwd");
-            }
-        } else if (isAttacking == true) {
-
-        Debug.Log("IS attacking" + isAttacking);
-            //if attacking, the colliders will be reenabled for her.
-            SetAllBoxColliders(true);
         }
 
     }
@@ -90,30 +93,55 @@ public class fighterController : MonoBehaviour {
         isAttacking = true;
         anim.ResetTrigger ("idle");
         anim.SetTrigger ("punch");
-        playAudio(1);
+        playAudio (1);
     }
     public void kick () {
         isAttacking = true;
         anim.ResetTrigger ("idle");
         anim.SetTrigger ("kick");
-        playAudio(3);
+        playAudio (3);
     }
     public void react () {
         isAttacking = true; //anschauen wo ich das auf false setze.
         health = health - 10;
         if (health < 10) {
             knockout ();
-            playAudio(2);
+            playAudio (2);
         } else {
             anim.ResetTrigger ("idle");
             anim.SetTrigger ("react");
-            playAudio(0);
+            playAudio (0);
         }
         playerHB.value = health;
     }
 
     public void knockout () {
+        GameController.allowMovement = false;
+        //reset health as well in the beginning of each round.
+        health = 100;
         anim.SetTrigger ("knockout");
+        //if knocked out, add the score to the bear.
+        GameController.instance.scoreEnemy ();
+        GameController.instance.onScreenPoints ();
+        GameController.instance.rounds ();
+        if (GameController.enemyScore == 2) {
+            GameController.instance.doReset ();
+            StartCoroutine (resetCharacters ());
+        } else { 
+            StartCoroutine (resetCharacters ());
+        }
     }
 
+    IEnumerator resetCharacters () {
+        yield return new WaitForSeconds (4);
+        playerHB.value = 100;
+        //when the game starts reset position
+        Transform t = this.GetComponent<Transform> ();
+        anim.SetTrigger("idle");
+        anim.ResetTrigger("knockout");
+        t.position = playerPosition;
+        Debug.Log("t position" + t.position);
+        transform.position = new Vector3 (t.position.x, 0.001f, t.position.z);
+        GameController.allowMovement = true;
+    }
 }
