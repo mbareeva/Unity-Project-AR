@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Spielraum_2.unity
     guid: c44e660b2bc37904fa59a88f34b61acb
+  - enabled: 1
+    path: Assets/Scenes/Uebergang-nach-Kampf.unity
+    guid: 93233276280e5ee40b9ae0e72712f88c
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: dec8c6384f2a4434abd7248283767075,
       type: 2}
