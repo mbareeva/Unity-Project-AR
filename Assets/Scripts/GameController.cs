@@ -61,7 +61,7 @@ public class GameController : MonoBehaviour {
         StartCoroutine (restartGame ());
     }
     IEnumerator restartGame () {
-        yield return new WaitForSeconds (4.5f);
+        yield return new WaitForSeconds (5.5f);
         points[0].SetActive (false);
         points[1].SetActive (false);
         points[2].SetActive (false);

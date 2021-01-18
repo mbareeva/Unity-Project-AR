@@ -21,6 +21,8 @@ public class fighterController : MonoBehaviour {
     public int health = 100;
     private Vector3 direction; //between the main player and enemy.
     private Vector3 playerPosition;
+
+    public GameObject canvas;
     void Awake () {
         if (instance == null) {
             instance = this;
@@ -125,15 +127,21 @@ public class fighterController : MonoBehaviour {
         GameController.instance.onScreenPoints ();
         GameController.instance.rounds ();
         if (GameController.enemyScore == 2) {
+            StartCoroutine(showGameOver());
             GameController.instance.doReset ();
             StartCoroutine (resetCharacters ());
         } else { 
             StartCoroutine (resetCharacters ());
         }
     }
+        IEnumerator showGameOver () {
+        yield return new WaitForSeconds (0.5f);
+        canvas.SetActive(true);
+    }
 
     IEnumerator resetCharacters () {
-        yield return new WaitForSeconds (4);
+        yield return new WaitForSeconds (5);
+        canvas.SetActive(false);
         playerHB.value = 100;
         //when the game starts reset position
         Transform t = this.GetComponent<Transform> ();
