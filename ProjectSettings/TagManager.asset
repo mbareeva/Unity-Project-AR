@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - EnemyBee
+  - HealthBar
   layers:
   - Default
   - TransparentFX
