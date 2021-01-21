@@ -588,6 +588,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601270553}
   m_CullTransparentMesh: 0
+--- !u!1 &608050603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 608050604}
+  m_Layer: 0
+  m_Name: LaunchScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &608050604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608050603}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 99.600006, y: 12.449982, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,6 +1334,8 @@ MonoBehaviour:
   - {fileID: 1335134262}
   bees:
   - {fileID: 7886282544132758240, guid: e6b802d5f8b1a284b856cffb909bcc94, type: 3}
+  myHealthBar: {fileID: 1644922007}
+  healthData: {fileID: 11400000, guid: 22809be993ad648c3ac7fa022906bfde, type: 2}
 --- !u!4 &1162918114
 Transform:
   m_ObjectHideFlags: 0
@@ -1498,9 +1530,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 1
-  m_MaxValue: 5
+  m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 5
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

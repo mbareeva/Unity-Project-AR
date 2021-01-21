@@ -6,10 +6,15 @@ public class SpawnScript : MonoBehaviour
 {
     public Transform[] spawnPoints; //all the points where we're going to spawn the bees
     public GameObject[] bees; //array which has 3D bee objects
+    public HealthBar myHealthBar;
+    [SerializeField] private HealthData healthData;
 
     // Start is called before the first frame update
     void Start()
     {
+        healthData.healthValue = 100;
+        myHealthBar.SetHealth(healthData.healthValue);
+
         StartCoroutine(StartSpawning()); //call the spawn process
     }
 
@@ -23,10 +28,9 @@ public class SpawnScript : MonoBehaviour
       
             //3 args - 1) bees - what to instantiate; 2)the position, 3)default rotation
             Instantiate(bees[i], pos, Quaternion.identity);
-         
         }
 
-        //waits for 4 seconds and spawns 3 bees more, and so on..
+        //waits for 2 seconds and spawns a bee, and so on..
         StartCoroutine(StartSpawning());
     }
 

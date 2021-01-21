@@ -1,36 +1,52 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
 
-public class ARCamera : MonoBehaviour
-{
+//public class ARCamera : MonoBehaviour
+//{
+//	public Transform arCamera;
+//	public int maxHealth = 100;
+//	public int currentHealth;
+//	public HealthBar myHealthBar;
+//	public Transform enemyBee;
+//	//public int maxHealth = 100;
+//	//public int currentHealth;
+//	// Start is called before the first frame update
+//	void Start()
+//    {
+//		myHealthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
+//		myHealthBar.currentHealth = myHealthBar.maxHealth;
+//		myHealthBar.SetMaxHealth(myHealthBar.maxHealth);
+//	}
 
-	public int maxHealth = 100;
-	public static int currentHealth;
-	public HealthBar healthBar;
+//    // Update is called once per frame
+//    void Update()
+//	{
+//		enemyBee = GameObject.FindGameObjectWithTag("EnemyBee").GetComponent<Transform>();
 
-	// Start is called before the first frame update
-	void Start()
-    {
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-    }
+//		float dist = Vector3.Distance(arCamera.transform.position, enemyBee.transform.position);
+//		if (dist < 1)
+//		{
+//			//healthBar.SetMaxHealth(maxHealth);
+//			myHealthBar.currentHealth -= 20;
+//			myHealthBar.SetHealth(myHealthBar.currentHealth);
 
-    // Update is called once per frame
-    void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Space))    
-		{
-			healthBar.SetMaxHealth(maxHealth);
-			currentHealth -= 20;
-		}
-	}
+//			//source.Play();
+//			//
+//			//StartCoroutine(startSound());
 
-	//void TakeDamage(int damage)
-	//{
-	//	currentHealth -= damage;
+//			// t.Pause();
+//			//Scores.scoreValue -= 1;
+//			//Destroy(gameObject);
 
-	//	healthBar.SetHealth(currentHealth);
-	//}
-}
+//		}
+//	}
+
+//	//void TakeDamage(int damage)
+//	//{
+//	//	currentHealth -= damage;
+
+//	//	healthBar.SetHealth(currentHealth);
+//	//}
+//}
