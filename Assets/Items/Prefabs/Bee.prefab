@@ -170,6 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arCamera: {fileID: 0}
   source: {fileID: -5019513503003556441}
+  myHealthBar: {fileID: 0}
+  healthData: {fileID: 11400000, guid: 22809be993ad648c3ac7fa022906bfde, type: 2}
 --- !u!1001 &7039370176779298737
 PrefabInstance:
   m_ObjectHideFlags: 0
