@@ -23,8 +23,6 @@ public class ShootScript : MonoBehaviour
             //if it hits bee1, then destroy bee1 and so on..
             if (hit.transform.name == "Bee(Clone)")
             {
-                
-                
                 Instantiate(explosion, hit.point, Quaternion.LookRotation(hit.normal));
                 Scores.scoreValue += 1;
                 Destroy(hit.transform.gameObject);

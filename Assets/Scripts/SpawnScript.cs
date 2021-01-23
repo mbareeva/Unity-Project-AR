@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnScript : MonoBehaviour
 {
@@ -14,18 +15,26 @@ public class SpawnScript : MonoBehaviour
     {
         healthData.healthValue = 100;
         myHealthBar.SetHealth(healthData.healthValue);
-
         StartCoroutine(StartSpawning()); //call the spawn process
+        
     }
 
     IEnumerator StartSpawning() {
+
+        if (healthData.healthValue == 0)
+        {
+            SceneManager.LoadScene("Uebergang-nach-Kampf");
+        }
 
         yield return new WaitForSeconds(2);
 
         for (int i = 0; i < 1; i++)
         {
+            if (healthData.healthValue == 0)
+            {
+                SceneManager.LoadScene("Uebergang-nach-Kampf");
+            }
             Vector3 pos = new Vector3(Random.Range(-10.0f, 10.0f), 0, Random.Range(-10.0f, 10.0f));
-      
             //3 args - 1) bees - what to instantiate; 2)the position, 3)default rotation
             Instantiate(bees[i], pos, Quaternion.identity);
         }
