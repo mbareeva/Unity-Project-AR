@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Spielraum_1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Hauptmenu.unity
     guid: 78425f24cddd0764186b7c988bfd10c5
   - enabled: 1
@@ -17,7 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Uebergang-nach-Kampf.unity
     guid: 93233276280e5ee40b9ae0e72712f88c
-
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: dec8c6384f2a4434abd7248283767075,
       type: 2}

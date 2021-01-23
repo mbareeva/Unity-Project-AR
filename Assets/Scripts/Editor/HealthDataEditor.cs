@@ -26,13 +26,14 @@ public class HealthDataEditor : Editor
         targetObject.healthValue = EditorGUILayout.IntField("healthValue", targetObject.healthValue);
         EditorGUILayout.EndVertical();
 
-        // If anything has changed, mark the object dirty so it's saved to disk
-        if (EditorGUI.EndChangeCheck())
-            EditorUtility.SetDirty(target);
-
         if (targetObject.healthValue == 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("Uebergang-nach-Kampf");
         }
+
+        // If anything has changed, mark the object dirty so it's saved to disk
+        //if (EditorGUI.EndChangeCheck())
+          //  EditorUtility.SetDirty(target);
+
     }
 }
