@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class AudioBeeStings : MonoBehaviour
 {
-    public AudioSource audioSource;
-    public AudioClip clip;
-    public float volume = 0.5f;
+    public static AudioSource audioSource;
+    public static AudioClip clip;
+    public static float volume = 0.5f;
 
-    void Start()
+    public static void Play()
     {
-        audioSource.PlayOneShot(clip, volume);
+        audioSource.Play();
     }
 }
