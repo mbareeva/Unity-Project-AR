@@ -30,10 +30,6 @@ public class HealthDataEditor : Editor
         {
             SceneManager.LoadScene("Uebergang-nach-Kampf");
         }
-
-        // If anything has changed, mark the object dirty so it's saved to disk
-        //if (EditorGUI.EndChangeCheck())
-          //  EditorUtility.SetDirty(target);
-
+  
     }
 }

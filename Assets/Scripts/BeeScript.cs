@@ -32,7 +32,7 @@ public class BeeScript : MonoBehaviour
         float dist = Vector3.Distance(transform.position, arCamera.transform.position);
         if (dist < 1)
         {
-            healthData.healthValue -= 50;
+            healthData.healthValue -= 10;
             myHealthBar.SetHealth(healthData.healthValue);
             Destroy(gameObject);
             //source.Play();
