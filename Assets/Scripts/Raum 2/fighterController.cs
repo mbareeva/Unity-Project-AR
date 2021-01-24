@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class fighterController : MonoBehaviour {
-    // Start is called before the first frame update
     public Transform enemyTarget;
     static Animator anim;
     public Slider playerHB;
@@ -44,7 +43,7 @@ public class fighterController : MonoBehaviour {
         c[0].enabled = state;
         c[1].enabled = state;
     }
-    // Update is called once per frame
+    
     void Update () {
         //define the vector between the player and enemy that is always updated for implementation of keeping the eye contact
         // between the characters.
@@ -83,7 +82,6 @@ public class fighterController : MonoBehaviour {
                 }
             } else if (isAttacking == true) {
 
-               // Debug.Log ("IS attacking" + isAttacking);
                 //if attacking, the colliders will be reenabled for her.
                 SetAllBoxColliders (true);
             }
@@ -104,7 +102,7 @@ public class fighterController : MonoBehaviour {
         playAudio (3);
     }
     public void react () {
-        isAttacking = true; //anschauen wo ich das auf false setze.
+        isAttacking = true;
         health = health - 10;
         if (health < 10) {
             knockout ();
@@ -135,7 +133,7 @@ public class fighterController : MonoBehaviour {
         }
     }
         IEnumerator showGameOver () {
-        yield return new WaitForSeconds (0.5f);
+        yield return new WaitForSeconds (0.3f);
         canvas.SetActive(true);
     }
 

@@ -3081,8 +3081,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7, y: -4}
-  m_SizeDelta: {x: 482.9226, y: 72.94472}
+  m_AnchoredPosition: {x: -0.5, y: -32.4}
+  m_SizeDelta: {x: 1445.6182, y: 303.86768}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1601679390
 MonoBehaviour:
@@ -3130,10 +3130,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 71.65
-  m_fontSizeBase: 56
+  m_fontSize: 200
+  m_fontSizeBase: 200
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 17
@@ -3166,7 +3166,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 2.5490723, w: 0}
+  m_margin: {x: -13.068054, y: 0, z: -23.58789, w: 17.4281}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4605,6 +4605,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5716538409454781689, guid: ca9d28112ad9c76489f7679ffdfc3180,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5716538409454781689, guid: ca9d28112ad9c76489f7679ffdfc3180,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5716538409454781689, guid: ca9d28112ad9c76489f7679ffdfc3180,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5716538409454781689, guid: ca9d28112ad9c76489f7679ffdfc3180,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.1201
       objectReference: {fileID: 0}
@@ -4811,17 +4826,17 @@ PrefabInstance:
     - target: {fileID: 2649053110629411549, guid: d0e262d38dc76f941ad031e69a60e7cf,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.05
+      value: 0.064
       objectReference: {fileID: 0}
     - target: {fileID: 2649053110629411549, guid: d0e262d38dc76f941ad031e69a60e7cf,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.05
+      value: 0.064
       objectReference: {fileID: 0}
     - target: {fileID: 2649053110629411549, guid: d0e262d38dc76f941ad031e69a60e7cf,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.05
+      value: 0.064
       objectReference: {fileID: 0}
     - target: {fileID: 2649053110629411549, guid: d0e262d38dc76f941ad031e69a60e7cf,
         type: 3}
