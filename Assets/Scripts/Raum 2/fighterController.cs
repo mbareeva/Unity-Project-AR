@@ -126,8 +126,8 @@ public class fighterController : MonoBehaviour {
         GameController.instance.rounds ();
         if (GameController.enemyScore == 2) {
             StartCoroutine(showGameOver());
-            GameController.instance.doReset ();
-            StartCoroutine (resetCharacters ());
+           // GameController.instance.doReset ();
+           // StartCoroutine (resetCharacters ());
         } else { 
             StartCoroutine (resetCharacters ());
         }
@@ -138,7 +138,7 @@ public class fighterController : MonoBehaviour {
     }
 
     IEnumerator resetCharacters () {
-        yield return new WaitForSeconds (5);
+        yield return new WaitForSeconds (4);
         canvas.SetActive(false);
         playerHB.value = 100;
         //when the game starts reset position
@@ -147,7 +147,7 @@ public class fighterController : MonoBehaviour {
         anim.ResetTrigger("knockout");
         t.position = playerPosition;
         Debug.Log("t position" + t.position);
-        transform.position = new Vector3 (t.position.x, 0.001f, t.position.z);
+        t.position = new Vector3 (t.position.x, 0.001f, t.position.z);
         GameController.allowMovement = true;
     }
 }
