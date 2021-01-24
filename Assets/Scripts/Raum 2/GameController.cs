@@ -113,7 +113,6 @@ public class GameController : MonoBehaviour {
     IEnumerator allowplayerMovement () {
         yield return new WaitForSeconds (5f);
         allowMovement = true;
-        Debug.Log ("movement allowed:" + allowMovement);
     }
 
     /*

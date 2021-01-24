@@ -8,7 +8,6 @@ public class playerCollision : MonoBehaviour
         if (other.tag == "Enemy") {
             //if get hit, reduce the health.
             fighterController.instance.react();
-          //  Debug.Log ("HIT HIT");
         }
     }
 }
