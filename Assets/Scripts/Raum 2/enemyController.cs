@@ -14,6 +14,8 @@ public class enemyController : MonoBehaviour {
     public AudioClip[] audioClip;
     AudioSource audioc;
     private Vector3 enemyPosition;
+
+    public GameObject canvas;
     void Awake () {
         if (instance == null) {
             instance = this;
@@ -118,21 +120,29 @@ public class enemyController : MonoBehaviour {
         //if the end of 2nd round & she has won
         if(GameController.playerScore == 2) {
             //resetting on screen scoring points.
-            GameController.instance.doReset();
+            StartCoroutine(showPlayerWin());
+            audioc.Stop();
+          //  GameController.instance.doReset();
+          //  StartCoroutine (resetCharacters ());
         } else {
             StartCoroutine(resetCharacters());
         }
     }
 
+     IEnumerator showPlayerWin () {
+        yield return new WaitForSeconds (0.3f);
+        canvas.SetActive(true);
+    }
+
     IEnumerator resetCharacters() {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);
         enemyHB.value = 100;
         //reset position
         Transform t = this.GetComponent<Transform> ();
         anim2.SetTrigger("idle");
         anim2.ResetTrigger("knockout");
         t.position = enemyPosition;
-        t.position = new Vector3(0.4f, 0.1f, t.position.z);
+        t.position = new Vector3(0.4f, 0.001f, t.position.z);
         GameController.allowMovement = true;
     }
 }
