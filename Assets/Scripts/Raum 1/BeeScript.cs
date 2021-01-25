@@ -19,7 +19,6 @@ public class BeeScript : MonoBehaviour
         myHealthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
     }
 
-    // Update is called once per frame (60 times pro sec)
     void Update()
     {
         //make bees fly - moves the objects towards the camera
@@ -27,13 +26,10 @@ public class BeeScript : MonoBehaviour
         transform.Rotate(0, -100, 0);
         transform.position = Vector3.Lerp(transform.position, arCamera.position, 0.01f);
 
-        //collision
         float dist = Vector3.Distance(transform.position, arCamera.transform.position);
         if (dist < 1)
         {
-
-                //source.PlayOneShot(beeSound);
-                healthData.healthValue -= 10;
+                healthData.healthValue -= 5;
                 myHealthBar.SetHealth(healthData.healthValue);
                 Destroy(gameObject);
         }

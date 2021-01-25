@@ -10,18 +10,16 @@ public class Scores : MonoBehaviour
     public static float scoreValue = Mathf.Clamp(0, 0, Mathf.Infinity);
     Text score;
 
-    // Start is called before the first frame update
     void Start()
     {
         score = GetComponent<Text>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         score.text = "X" + scoreValue;
 
-        if (scoreValue > 15)
+        if (scoreValue > 10)
         {
             SceneManager.LoadScene("Uebergang-nach-Kampf");
         }

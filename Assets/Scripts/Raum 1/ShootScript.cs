@@ -5,14 +5,9 @@ using UnityEngine;
 public class ShootScript : MonoBehaviour
 {
     public GameObject arCamera;
+    public AudioSource source;
+    public AudioClip puff;
 
-    //public GameObject blood;
-    //public ParticleSystem ps;
-
-    // When the enemy dies, we play an explosion
-    public Transform explosion;
-
-    //when the user clicks Shoot button, this function is called
     public void Shoot() { 
 
         RaycastHit hit;
@@ -23,12 +18,9 @@ public class ShootScript : MonoBehaviour
             //if it hits bee1, then destroy bee1 and so on..
             if (hit.transform.name == "Bee(Clone)")
             {
-                Instantiate(explosion, hit.point, Quaternion.LookRotation(hit.normal));
+                source.Play();
                 Scores.scoreValue += 1;
                 Destroy(hit.transform.gameObject);
-                //when the bee is destroyed, show me splashes
-                //Instantiate(explosion, hit.point, Quaternion.LookRotation(hit.normal));
-
             }
         }
     }
