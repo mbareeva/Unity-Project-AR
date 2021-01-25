@@ -1938,12 +1938,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Welcome to our fairytale, dear Player! \n\nAs you know, the forest honey
-    is extremely tasty and, of course, everyone wants to try it out. But animals
+    is extremely tasty and, of course, everyone wants to try it out. \nBut animals
     just do not like sharing and that makes them angry when someone enters their
     sacred place, their home. To try out the honey, you really need to fight for
     it! \n\nFirst, you have to shoot angry bees. Be careful, they can sting you,
     if you do not shoot them in time. \n\nOnly after you win in this challenging
-    battle, there is one more boundary on your way  - dangerous grizzly bear! You
+    battle, there is one more boundary on your way  - dangerous grizzly bear! \nYou
     have to show it who is stronger and  fight with it! \n\nIf you win, you can finally
     get the most tasty honey this forest was hiding from you!\n"
   m_isRightToLeft: 0
