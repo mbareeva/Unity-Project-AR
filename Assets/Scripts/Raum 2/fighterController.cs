@@ -64,7 +64,6 @@ public class fighterController : MonoBehaviour {
                 if (mvBack == true) {
                     anim.SetTrigger ("wkBack");
                     anim.ResetTrigger ("idle");
-                    //SetAllBoxColliders (false);
 
                 } else {
                     anim.SetTrigger ("idle");
@@ -74,7 +73,6 @@ public class fighterController : MonoBehaviour {
                 if (mvFwd == true) {
                     anim.SetTrigger ("wkFwd");
                     anim.ResetTrigger ("idle");
-                    // SetAllBoxColliders (false);
 
                 } else if (mvBack == false) {
                     anim.SetTrigger ("idle");
@@ -126,8 +124,11 @@ public class fighterController : MonoBehaviour {
         GameController.instance.rounds ();
         if (GameController.enemyScore == 2) {
             StartCoroutine(showGameOver());
-           // GameController.instance.doReset ();
-           // StartCoroutine (resetCharacters ());
+
+          // Previously we forced the game to be restarted. Instead after 2 rounds we show the results of the
+          // fight to the user.
+          // GameController.instance.doReset ();
+          // StartCoroutine (resetCharacters ());
         } else { 
             StartCoroutine (resetCharacters ());
         }
@@ -146,7 +147,6 @@ public class fighterController : MonoBehaviour {
         anim.SetTrigger("idle");
         anim.ResetTrigger("knockout");
         t.position = playerPosition;
-        Debug.Log("t position" + t.position);
         t.position = new Vector3 (t.position.x, 0.001f, t.position.z);
         GameController.allowMovement = true;
     }

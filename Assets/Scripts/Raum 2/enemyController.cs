@@ -47,7 +47,6 @@ public class enemyController : MonoBehaviour {
             SetAllBoxColliders (false);
         }
         //Ai for attacks of bear.
-        //Debug.Log (direction.magnitude);
         //if away from kicking distance, then move forward.
         if (direction.magnitude > 0.25f && GameController.allowMovement == true) {
             anim2.SetTrigger ("walkFwd");
@@ -105,7 +104,7 @@ public class enemyController : MonoBehaviour {
         enemyHB.value = enemyHealth;
     }
 /*
-* Player knocks the enemy out. When enemy is knockedout, the palyer
+* Player knocks the enemy out. When enemy is knocked out, the palyer
 * stops moving. The round is reset to the next. The health of both players is reset to 100.
 */
     public void enemyKnockout () {
@@ -122,6 +121,9 @@ public class enemyController : MonoBehaviour {
             //resetting on screen scoring points.
             StartCoroutine(showPlayerWin());
             audioc.Stop();
+
+          // Previously we force the fight to be restarted. Now after the win or loss, 
+          // the panel with the results of the game will be shown.
           //  GameController.instance.doReset();
           //  StartCoroutine (resetCharacters ());
         } else {
